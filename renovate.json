@@ -1,0 +1,40 @@
+{
+  "baseBranches": ["main", "master"],
+  "branchPrefix": "renovate_",
+  "automerge": false,
+  "separateMinorPatch": true,
+  "separateMajorMinor": true,
+  "updateLockFiles": false,
+  "rangeStrategy": "replace",
+  "ignoreDeps": ["eslint", "final-form","lodash","react","react-dom","react-redux","redux"],
+
+  "major": {
+    "enabled": false
+  },
+  "minor": {
+    "enabled": false
+  },
+  "patch": {
+    "enabled": true
+  },
+
+  "regexManagers": [
+    { 
+      "fileMatch": [ "^install-extras.json$" ],
+      "matchStrings": [ "\\\"(?<moduleName>(mod-|edge-|okapi).*?)-(?<currentValue>[0-9]+\\.[0-9]+\\.[0-9]+?)\\\"" ],
+      "datasourceTemplate": "docker",
+      "depNameTemplate": "folioorg/{{{moduleName}}}"
+    }
+  ],
+
+  "packageRules": [
+    { 
+      "baseBranchList": ["main", "master"],
+      "packagePatterns": ["^@folio/", "^folioorg/"],
+      "groupName": "Main branch updates",
+      "updateTypes": ["patch"], 
+      "enabled": true
+    }
+  ]
+}
+    
