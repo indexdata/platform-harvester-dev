@@ -16,6 +16,7 @@
     "test-int": "stripes test nightmare stripes.config.js",
     "test-regression": "stripes test nightmare stripes.config.js --run WD/checkout/users/inventory/requests/circulation/tenant-settings",
     "lint": "eslint test/ui-testing"
+    "deploy": "sh -c 'find $0 -type f -exec gzip \"{}\" \\; -exec mv \"{}.gz\" \"{}\" \\; ; aws --profile indexdata-dev s3 sync ${0}/ s3://folio-dev-bundles/harvester-dev --acl public-read --content-encoding gzip --delete'"
   },
   "dependencies": {
     "@folio/calendar": "7.1.1",
