@@ -1,13 +1,13 @@
 # This workflow will build the stripes bundle and deploy to S3. 
 
-name: build-stripes
+name: bundle-deploy
 on: 
   workflow_dispatch:
 
 jobs: 
-  deploy-stripes:
+  bundle-deploy:
     env:
-      FOLIO_NPM_REGISTRY: 'https://repository.folio.org/repository/npm-folio
+      FOLIO_NPM_REGISTRY: 'https://repository.folio.org/repository/npm-folio'
       NODEJS_VERSION: '14'
       
     runs-ons: ubuntu-latest
