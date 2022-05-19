@@ -1,5 +1,5 @@
 module.exports = {
-  okapi: { 'url':'http://localhost:9130', 'tenant':'diku' },
+  okapi: { 'url':'https://harvester-dev-okapi.folio-dev.indexdata.com', 'tenant':'harvesterdev' },
   config: {
     logCategories: 'core,path,action,xhr',
     logPrefix: '--',
@@ -21,7 +21,8 @@ module.exports = {
     '@folio/servicepoints' : {},
     '@folio/tags': {},
     '@folio/tenant-settings' : {},
-    '@folio/users' : {}
+    '@folio/users' : {},
+    '@indexdata/harvester-admin': {}
   },
   branding: {
     logo: {
