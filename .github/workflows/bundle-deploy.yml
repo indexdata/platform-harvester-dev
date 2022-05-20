@@ -9,6 +9,7 @@ jobs:
     env:
       FOLIO_NPM_REGISTRY: 'https://repository.folio.org/repository/npm-folio'
       NODEJS_VERSION: '14'
+      STRIPES_TRANSPILE_TOKENS: '@indexdata'
       
     runs-on: ubuntu-latest
     steps:
