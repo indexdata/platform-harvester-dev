@@ -8,7 +8,9 @@
     "start": "stripes serve stripes.config.js",
     "build-module-descriptors": "stripes mod descriptor stripes.config.js --output ./ModuleDescriptors",
     "local": "f=stripes.config.js; test -f $f.local && f=$f.local; echo Using config $f; stripes serve $f",
-    "test": "echo 'No unit tests implemented'"
+    "test": "echo 'No unit tests implemented'",
+    "deploy": "sh -c 'find $0 -type f -exec gzip \"{}\" \\; -exec mv \"{}.gz\" \"{}\" \\; ; aws s3 sync ${0}/ s3://folio-dev-bundles/harvester --acl public-read --content-encoding gzip --delete'"
+
   },
   "dependencies": {
     "@folio/developer": "6.3.0",
