@@ -16,7 +16,7 @@ docker build -t stripes-harvester-admin -f docker/Dockerfile --build-arg OKAPI_U
 * Run nginx docker container with Stripes bundle (example)
 
 ```
-docker run -d -p "80:80" gbv-stripes-harvester-admin 
+docker run -d -p "80:80" stripes-harvester-admin 
 ```
 
 * Clone https://github.com/indexdata/ui-harvester-admin repository
