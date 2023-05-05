@@ -27,7 +27,7 @@ yarn install
 yarn build-mod-descriptor
 ```
 
-* Post ui-harvester-admin odule decriptor to local Okapi instance (with valid supertenant $OKAPI_TOKEN) 
+* Post ui-harvester-admin module decriptor to local Okapi instance (with valid supertenant $OKAPI_TOKEN) 
   
 ```
 curl -w '\n' -i -H 'Content-Type: application/json' -H "X-Okapi-Token: $OKAPI_TOKEN" https://YOUR-LOCAL-OKAPI/_/proxy/modules -d @module-descriptor.json -X POST
