@@ -8,7 +8,7 @@ jobs:
   bundle-deploy:
     env:
       FOLIO_NPM_REGISTRY: 'https://repository.folio.org/repository/npm-folio'
-      NODEJS_VERSION: '14'
+      NODEJS_VERSION: '16'
       STRIPES_TRANSPILE_TOKENS: '@indexdata'
       
     runs-on: ubuntu-latest
