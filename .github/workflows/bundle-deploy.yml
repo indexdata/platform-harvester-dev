@@ -1,38 +1,38 @@
-# This workflow will build the stripes bundle and deploy to S3. 
+# This workflow will build the stripes bundle and deploy to S3.
 
 name: bundle-deploy
-on: 
+on:
   workflow_dispatch:
 
-jobs: 
+jobs:
   bundle-deploy:
     env:
       FOLIO_NPM_REGISTRY: 'https://repository.folio.org/repository/npm-folio'
       NODEJS_VERSION: '14'
       STRIPES_TRANSPILE_TOKENS: '@indexdata'
-      
+
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
-    
+
       - name:  Setup kernel for react native, increase watchers
         run: echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
 
       - name: Use Node.js
         uses: actions/setup-node@v2
-        with: 
+        with:
           node-version: ${{ env.NODEJS_VERSION }}
           check-latest: true
           always-auth: true
- 
+
       - name: Set yarn config for FOLIO modules
         run: yarn config set @folio:registry $FOLIO_NPM_REGISTRY
 
       - name: Add @indexdata/harvester-admin
         run: yarn add https://github.com/indexdata/ui-harvester-admin#main
-        
+
       - name: Run yarn lint
         run: yarn lint
         continue-on-error: true
@@ -46,6 +46,6 @@ jobs:
           AWS_ACCESS_KEY_ID: ${{ secrets.FOLIO_DEV_S3_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.FOLIO_DEV_S3_DEV_SECRET_ACCESS_KEY }}
           AWS_REGION: 'us-east-2'
-      
-      
+
+
 
